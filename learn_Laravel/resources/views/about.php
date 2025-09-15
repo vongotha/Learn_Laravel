@@ -23,7 +23,7 @@
         </ul>
     </nav>
     <main>
-        <h1>Welcome to the Home Page</h1>
+        <h1>Welcome to the About Page</h1>
     </main>
 </body>
 </html>
