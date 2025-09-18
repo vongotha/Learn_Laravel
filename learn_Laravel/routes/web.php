@@ -16,26 +16,12 @@ Route::get('/jobs', function () {
 });
 
 Route::get('/jobs/{id}', function ($id) {
-    $jobs = [
-        [
-            'id' => 1,
-            'title' => 'Director',
-            'salary' => '$50,000',
-        ],
-        [
-            'id' => 2,
-            'title' => 'Programmer',
-            'salary' => '$10,000',
-        ],
-        [
-            'id' => 3,
-            'title' => 'Manager',
-            'salary' => '$30,000',
-        ],
-    ];
 
-    $job = Arr::first($jobs, fn($job) => $job['id'] == $id);
+    $job = Job::find($id);
 
+    if (! $job) {
+        abort(404);
+    }
     return view('job', ['job' => $job]);
 });
 
